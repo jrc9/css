@@ -1,0 +1,106 @@
+TIPOS DE SELECTORES EN CSS
+
+Selectores simples
+-selectores elementales
+---selector universal -> *
+---selector de tipo o etiqueta -> Nombre de la etiqueta
+
+-selectores de atributo
+--- id -> se pone el id del elemento--------no es recomendable por que solo le pega a un elemento de una pagina de todo el sitio
+--- clase -> clase del elemento-------------el mas recomendable para agarrar todo lo que esté dentro de una clase. Puedes tener n clases en una etiqueta
+
+--- otros atributos-----------------------------------------------------------------------------------------------------------
+[atributo]
+[atributo=valor]
+[atributo^=valor]---------para atributos que empiecen por algo
+[atributo*=valor]----------]es como el de arriba pero no necesariamente tiene que comenzar, puede estar donde sea
+[atributo $=valor]---------parecido a los de arriba pero es para si termina con una palabra
+[atributo |=valor]---------para poner un atributo que lleve guion o no
+-------------------------------------------------------------------------------------------------------------------------------
+
+selectores compuestos(son los que requieren mas de una palabra o con simbolos)
+-selectores agrupados-------si le vas a meter el mismo estilo a varios, los puedes separar por comas 
+
+    .text-1,
+    .text-2,
+    .text-3,
+    .text-4{
+        background-color: steelblue;
+    }
+
+-------------------------------------------------------------------------------------------------------------------------------
+-selectores combinadores
+------selector descendiente(hijos)------es para dar estilo a una etiqueta que este dentro de otro y no le pegue a todas. Ejemplo a clase title-2 dentro de un div.
+
+div .title-2{
+    background-color: skyblue;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+selector de hermano siguiente(que estan al mismo nivel en el HTML). Solo funciona con el hermano siguiente.
+
+.title-2 + .text-1 {
+    background-color:seagreen;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+seleccionar todos los hermanos siguientes
+
+.text-1 ~ p,
+.text-1 ~ h2{
+    background-color: tomato;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Selector Hijo Directo(solo selecciona los hijos directos, sin nietos). En este caso seleccionaria solo los p que son hijos directos
+
+.container > p {
+    background: red;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ESPECIFICIDAD Y CASCADA
+
+Especificidad -> Establece como de especifico es un selector para saber que estilo aplicar
+
+    El navegador tiene ciertos valores para definir cual va a ganar en el css.
+        Etiquetas y pseudoelementos 001
+        Clase, atributos y pseudoclases 010
+        IDs 100
+        Estilos en linea(los que van directo en el HTML) 1000
+        !Important Gana a todo
+
+    Nunca usar !important por que te saltas toda la Especificidad
+
+El navegador primero toma en cuenta la Especificidad y luego el orden en cascada tomando en cuenta el de mas abajo
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+HERENCIA -> Es la capacidad que tienen algunos elementos de heredar algunas propiedades de sus elementos contenedores (padres, abuelos, etc).
+
+* Los enlaces no heredan de su padre por que son elementos que se tienen que distinguir
+
+Para forzar que hereden de su padre se pone la palabra "inherit" en el valor del atributo
+
+.text{
+    color: green;
+}
+
+.link{
+    color: inherit;
+}
+
+Para evitar que un elemento adquiera los propiedades de su padre se pone al valor "initial".
+
+.lis-item-extra{
+    color:initial;
+}
+
+
+
+
+
+
+
+
+
