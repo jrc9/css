@@ -96,7 +96,7 @@ Para evitar que un elemento adquiera los propiedades de su padre se pone al valo
     color:initial;
 }
 
-
+Agregue valores
 
 
 
