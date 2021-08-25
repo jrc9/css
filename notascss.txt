@@ -97,7 +97,8 @@ Para evitar que un elemento adquiera los propiedades de su padre se pone al valo
 }
 
 Agregue valores
-
+agregue
+agregue
 
 
 
