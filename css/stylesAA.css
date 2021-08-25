@@ -1,0 +1,34 @@
+body{
+    background-color: #333;
+    color: #fff;
+}
+
+.title{
+    margin-left: auto;
+    width: 300px;
+    background-color: lawngreen;
+}
+
+.box{
+    background-color: purple;
+    width: 200px;
+    height: 200px;
+    margin-right: auto;
+    margin-top: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: lawngreen;
+}
+
+.inline{
+    background-color: lightcoral;
+    color: inherit;
+    margin-left: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+}

@@ -96,9 +96,112 @@ Para evitar que un elemento adquiera los propiedades de su padre se pone al valo
     color:initial;
 }
 
-Agregue valores
-agregue
-agregue
+-----------------------------------------------------------------------------------------------------------------------
+ESTILOS POR DEFECTO Y HERRAMIENTA INSPECCIONAR
+
+Todos los navegadores traen estilos por defecto.
+Para ver que estilos se estan aplicando y de que linea se usa la herramienta de inspeccionar del navegador.
+
+SE PUEDEN NORMALIZAR LOS ESTILOS DE LOS NAVEGADORES.
+
+Para normalizar hay que importar un archivo que se llama normalize.css que hay que descargar y ponerlo hasta arriba en la cascada de los estillos.
+
+----------------------------------------------------------------------------------------------------------------------
+PREFIJOS PROPIETARIOS
+
+Estos se usan para cuando aun no hay ciertas cosas de css implementadas al 100 en el lenguaje y se usan algunos prefijos para que el navegador las interprete. Usa una pagina que se llama 'autoprefixer' para que el escriba el codigo css y le genere el codigo con los prefijos. Mas que nada es por que como hay muchos navegadores es para que funcione en todos.
+
+puse autoprefixer en el vscode, solo hay que ejecutar el comando autoprefixer y te los pone solito
+
+----------------------------------------------------------------------------------------------------------------------
+BOX MODEL
+
+Contenido: lo que esta dentro de la caja
+Borde: El borde de la caja
+Padding: la distancia entre el borde y el Contenido
+Margin: la distancia entre caja y caja
+width: ancho de la caja
+height: alto de la caja
+
+----------------------------------------------------------------------------------------------------------------------
+WIDTH Y HEIGHT 
+
+Con width y height no puedes dar medidas a los elementos de linea, solo a los que son de bloque.
+
+----------------------------------------------------------------------------------------------------------------------
+MARGIN Y PADDING 
+
+Margin nos permite generar espacio entre elementos. 
+margin-top:
+margin-right:
+margin-bottom:
+margin-right:
+
+Margin admite hasta 4 valores que van en el sentido de las agujas del reloj. 
+
+margin:top right bottom left
+
+Los elementos de linea solo funcionan los margenes horizontales(right y left) y en los de bloque funcionan todos.
+
+-----------------
+Para tener margenes automaticos sobre un bloque se utilizan los siguientes:
+
+margin-left: auto;
+margin-right: auto;
+
+esto es dependiendo del tamaño de la caja se ajusta hasta la derecha o la izquierda segun lo que necesite.
+----------------------------------------------------------------------------------------------------------------------
+*{
+    margin: 0;
+    adding: 0;
+}
+
+Esto es una mala practica ya que te tumba todos los margenes por estar hasta arriba y te tocaria meter los margenes a cada elemento y generaria muchisimo codigo.
+
+Para centrar un elemento no hay que usar "margin: 0 auto" ya que te puede pegar a los margenes verticales, si lo que se quiere es centrar horizontalmente hay que poner:
+
+margin-left: auto;
+margin-right: auto;
+--------------------------------------------
+En el body si es recomendable poner margin: 0; ya que por defecto el navegador trae 8px de margen.
+----------------------------------------------------------------------------------------------------------------------
+PADDING
+
+Es la propiedad que nos permite generar espacio entre el borde y la caja. Igual que en el margin, se aplica para arriba, abajo, inzquierda derecha e igual funciona con las agujas del reloj para cuando tiene 2 o mas parametros.
+
+En el padding a diferencia de margin si funciona para top y bottom en los elementos de linea.
+
+----------------------------------------------------------------------------------------------------------------------
+BORDER
+
+Es la propiedad que nos permite modificar el borde de la caja.
+
+border-width:
+border-style:
+border-color:
+
+----------------------------------------------------------------------------------------------------------------------
+BOX SIZING
+
+Esta propiedad sirve para ajustar automaticamente tu caja a los pixeles dados desde un inicio en tu caja, ya que si le agregas  paddign o border la caja crecera pero con box-sizing te ajusta automaticamente todos los valores sin que la caja crezca.
+
+box-sizing: border-box;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
