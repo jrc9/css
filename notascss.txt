@@ -187,6 +187,65 @@ Esta propiedad sirve para ajustar automaticamente tu caja a los pixeles dados de
 
 box-sizing: border-box;
 
+lo puedes poner en el selector universal * para que todas las cajas lo tengan.
+
+----------------------------------------------------------------------------------------------------------------------
+BORDER RADIUS
+
+Permite redondear los bordes de una caja.
+
+border-radius; 50px;
+
+----------------------------------------------------------------------------------------------------------------------
+BORDER RADIUS ELIPTICO
+
+Es como el border raius pero en vez de creear circulos como vertice para recortar, utilizas 2 parametros para el eje x y Y.
+
+border-top-left-radius: 50px 100px; corta 50 en el eje x y 100 en el eje Y
+
+border-radius: 50px / 100px;   con la / te aseguras de que entienda que es una elipse
+
+----------------------------------------------------------------------------------------------------------------------
+OVERFLOW
+
+Es lo que se usa para controlar que se desborden las cajas. Que es cuando se desborda el contenido del tamaño original de la caja.
+
+overflow-y:hidden;     Se oculta el comtenido que se desborda de la caja
+overflow-y:scroll;        Sale un scroll para poder moverte
+
+----------------------------------------------------------------------------------------------------------------------
+COLAPSADO DE MARGENES  
+
+Es un problema en CSS ya que los margenes verticales colapsan ya que si se encuentran 2 margenes se pone uno encima del otro.
+Por lo que es recomendable empezar de arriba hacia abajo poniendo margin-bottom.
+
+Esto solo pasa en vertical, en horizontal si se suman los margenes.
+
+----------------------------------------------------------------------------------------------------------------------
+DISPLAY
+
+Sirve para cambiar el contexto de los elementos dentro del navegador.
+
+none -> hace que el elemento no se muestre
+block -> Hace que el elemento sea de bloque
+inline -> Hace que el elemento sea de linea
+inline-block -> hace que el elemento sea de linea pero permite margenes verticales
+
+---------------------------------------------------------------------------------------------------------------------
+OUTLINE
+
+Es similar a border solo que el outline si encima mas cajas, el borde va a estar aumentando o quitando tamaño a la caja pero el outline se dibuja por fuera de la caja.
+
+outline-offset -> nos sirve para indicar a cuanta distancia de la caja queremos que se dibuje. Puede ser para afuera o para adentro de la caja
+
+----------------------------------------------------------------------------------------------------------------------
+TEXT ALIGN
+
+nos permite alinear horizontalmente el contenido de un elemento de bloque siempre que no tenga ancho declarado.
+
+----------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
