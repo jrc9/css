@@ -244,6 +244,70 @@ TEXT ALIGN
 nos permite alinear horizontalmente el contenido de un elemento de bloque siempre que no tenga ancho declarado.
 
 ----------------------------------------------------------------------------------------------------------------------
+BOX SHADOW
+
+Sirve para dar sombra a una caja, solo hay que jugar con los valores para acomodarlo.
+
+con el parametro "inset" le indicas que la sombra va a ir por dentro de la caja y no por fuera.
+
+Puedes poner las sombras que quieras solo en los parametros separas con una coma las sombras que quieras poner
+
+box-shadow: 5px 5px red, 10px 10px blue;
+----------------------------------------------------------------------------------------------------------------------
+POSITION
+
+Esta propiedad nos permite posicionar los elementos. 
+
+-Flujo renderizado: Todos los elementos se dibujan de izquierda a derecha y de arriba a abajo. El punto 0,0 es ariba a la izquierda
+
+-Espacio: reservado: el espacio que un navegador le asigna a un elemento para que ningun otro elemento entre en ese espacio
+
+-Elemento posicion: esto significa que el elemento tiene una posicion diferente de static que es la propiedad que tiene por default position.
+
+-stackin context: es el orden en el que se apilan las cajas que se superponen dentro del mismo contenedor.
+
+Position tiene 5 propiedades para mover el elemnto en 3 ejes.
+
+top, right, botton, left y z-index.
+
+z-index: seria la profundidad de cada elemento.
+
+*****Si a un elemento le ponemos las propiedades top y left, bottom y right no funcionaran.
+ 
+POSIBLES VALORES QUE LE PODEMOS DAR A POSITION
+
+static: es el valor por defecto, por lo que el elemnto no está posicionado.
+
+relative: cuando tu pones "position:relative" la caja tiene su espacio reservado en el navegador y toma como referencia el punto 0,0 en x,y de la caja, si tu le quieres dar un top, bottom, left, right desde el punto 0,0 donde esta la caja tomara estas medidas.
+
+absolute: El elemento pierde sus medidas y espacio reservado y puede ocuparlo otra caja. Si lo movemos usara el elemnto POSICIONADO contenedor como referencia. Si no está posicionado el contenedor no lo toma en cuenta.
+
+fixed: El elemento pierde sus medidas y espacio reservado. SE QUEDARA EN SU POSICION AUNQUE HAGAMOS SCROLL. YA NO SE USA TANTO POR QUE STICKY LO SUPLIO A MENOS QUE TENGAS QUE DAR SOPORTE A NAVEGADORES VIEJOS. SIEMPRE USARA COMO REFERENCIA EL HTML AUNQUE ESTE DENTRO DE UN CONTENEDOR.
+
+sticky: Es una mezcla de position relative y fixed. Aqui top,left, right, bottom no funcionan para dra espaciado si no para indicar que apartir de esa distancia deja de ser fixed y se vuelve relative. SI USAS OVERFLOW HIDDEN, STICKY NO FUNCIONARA.
+
+SI UN ELEMENTO ESTA POSICIONADO RESPECTO A OTRO, TODO LO QUE ESTE POSICIONADO DENTRO DEL CONTENEDOR, SE VA A MOVER CON EL.
+
+SI POSICIONAS ELEMENTOS DE LINEA, AUTOMATICAMENTE LO VUELVE DE BLOQUE SIN NECESIDAD DE PONER "display:block"
+
+----------------------------------------------------------------------------------------------------------------------
+Z-INDEX 
+
+Es la propiedad que os permite ordenar los elementos superpuestos para decidir cual se pone por delante.
+
+ z-index: 1;      EN EL PARAMETRO DE Z-INDEX EL NUMERO MAYOR ES EL QUE SE SOBREPONE
+
+ NO HAY QUE PONER NUMEROS CONSECUTIVOS POR SI SE PONEN ELEMENTOS EXTRAS YA QUE SI NO SE TENDRIA QUE REACOMODAR TODO.
+
+ EL PADRE JAMAS SE COLOCA POR ENCIMA DEL HIJO CON Z-INDEX, LO QUE PUEDES HACER ES PONER AL HIJO DETRAS DEL PADRE, SOLO HAY QUE DARLE VALOR NEGATIVO AL Z-INDEX SIEMPRE Y CUANDO EL PADRE NO TENGA UN Z-INDEX DECLARADO.
+
+ 
+
+
+
+
+
+
 
 
 
