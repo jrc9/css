@@ -301,7 +301,119 @@ Es la propiedad que os permite ordenar los elementos superpuestos para decidir c
 
  EL PADRE JAMAS SE COLOCA POR ENCIMA DEL HIJO CON Z-INDEX, LO QUE PUEDES HACER ES PONER AL HIJO DETRAS DEL PADRE, SOLO HAY QUE DARLE VALOR NEGATIVO AL Z-INDEX SIEMPRE Y CUANDO EL PADRE NO TENGA UN Z-INDEX DECLARADO.
 
- 
+ ---------------------------------------------------------------------------------------------------------------------
+ STACKING context
+
+ Es el algoritmo que usa el navegador para ordenar las cajas.
+
+ El orden de stacking context es el siguiente:
+ -Elementos posicionados con un z-index de 1 o mas
+ -Elementos posicionados sin z-index declarado o en auto
+ -Elementos no posicionados
+ -Elementos con z-index NEGATIVO
+
+ DENTRO DE CADA DIV O CONTENEDOR TAMBIEN SE APLICAN ESTOS ORDENES
+
+ ---------------------------------------------------------------------------------------------------------------------
+ COMO ORDENAR LAS PROPIEDADES EN EL CSS
+
+ 1.-Propiedades de posicionamiento
+ 2.-Propiedades del box MODEL
+ 3.-Propiedades de texto
+ 4.-Propiedades visuales (colores, bordes, background)
+ 5.-El resto  
+
+ body{
+
+     //Position//
+     position: relative;
+     top: 0;
+     left: 0;
+
+     //box model//
+     display: block;
+     width: 300px;
+     padding: 10px;
+     overflow: hidden;
+
+     //text//
+     font-size: 16px;
+     text-align: center;
+
+     //VISUALES//
+     color: blue;
+     border: 2px solid red;
+     border-radius: 10px;
+
+     //RESTO//
+     opacity: 1;
+
+
+ }
+
+ ---------------------------------------------------------------------------------------------------------------------
+ MEDIDAS ABSOLUTAS Y RELATIVAS
+
+ Las medidas absolutas no cambian y siempre mantendran su tamaño independientemente del dispositivo o la interaccion del usuario.
+
+ Medidas:
+ -px 
+ -cm 
+ -mm 
+ -Q (cuarto de milimetro)
+ -in(pulgadas) 
+ -pc(picas) 
+ -pt(puntos)
+
+ Las medidas relativas siempre dependen de un contexto, osn las que se recomienda utilizar casi siempre para utilizar los diseños responsive.
+
+ Las relativas mas utilizadas son:
+ -em
+ -rem 
+ -%
+ -vw
+ -vh
+ -vmin
+ -vmax
+ ---------------------------------------------------------------------------------------------------------------------
+ Unidades de medida EM y REM 
+
+rem -> corresponde a la medida de la "m" de la raiz del documento(html).
+
+em -> corresponde a la medida de la "m" del contexto donde nos encontremos.
+
+El estandar del tamaño de la fuente por defecto en la raiz del documento de 16px y no es recomendable modificarlo.
+
+NOTA: Tanto "em" como "rem" se calcula en base a la propiedad font-size;
+
+ejemplo: 16px = 1rem
+
+Al depender del contexto con em, se recomienda usar siempre rem para texto.
+
+Si lo que esta alrededor de una caja debe crecer proporcionalmente al texto, es recomendable usar siempre em.
+
+---------------------------------------------------------------------------------------------------------------------
+WIDTH % Y WIDTH AUTO
+
+% -> Se usa para dar medidas en funcion al tamaño del contenedor
+
+auto -> si se usa auto, se le pide al navegador que calcule en funcion del espacio disponible. Con auto ocupa todo lo que puede a los lados.
+
+---------------------------------------------------------------------------------------------------------------------
+HEIGHT % Y HEIGHT AUTO
+
+% -> Cuando estamos dentro de un contenedor, este tiene que tener un alto declarado si no no podra calcular el porcentaje
+
+auto - > el navegador calculara en base al contenido del elemento.
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
