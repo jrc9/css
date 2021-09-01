@@ -407,6 +407,139 @@ HEIGHT % Y HEIGHT AUTO
 auto - > el navegador calculara en base al contenido del elemento.
 
 ---------------------------------------------------------------------------------------------------------------------
+VIEWPORT RESPONSIVE 
+
+Es el area util donde se mostrara la página web(area visible sin hacer scroll)
+
+vw -> viewport width
+vh -> viewpoert height
+vmax -> usa el valor mas grande entre el ancho y alto del viewport
+vmin -> usa el valor mas pequeño entre el ancho y alto del viewport
+
+1vw = 1% del ancho del viewport 
+1vh = 1% del alto del viewport  
+1vmin = 1% del valor que sea mas pequeño en el viewport  
+1vmax = 1% del valor que sea mas grande en el viewport  
+
+el viewport width se redimensiona de acuerdo al viewport y el porcentaje de acuerdo a su caja contenedora.
+---------------------------------------------------------------------------------------------------------------------
+LIMITADORES DE ANCHO Y ALTO CON MEDIDAS RELATIVAS  
+
+min-width: ancho minimo
+max-width: ancho maximo
+min-height: alto minimo
+max-height: alto maximo 
+
+---------------------------------------------------------------------------------------------------------------------
+CODIGOS DE COLORES  
+
+La suma de los colores da como resultado un blanco, entre mas vayas quitando se acerca mas al negro.
+
+---------------------------------------------------------------------------------------------------------------------
+CURRENT COLOR 
+
+Es un parametro que se pueda usar en cualquier propiedad que acepte color.
+Toma el valor de color que le quede mas cerca, ya sea el de su propia caja o el de su padre o abuelo.
+
+---------------------------------------------------------------------------------------------------------------------
+MODO COLOR RGB 
+
+RED, GREEN, BLUE 
+
+Los valores van a ir de 0 A 255. Si ponemos todos en 0 nos dara un negro y todos en 255 nos dara un blanco.
+
+A 128 nos dara gris puro.
+
+Si utlizamos el 4to parametro sera el canal alpha el cual nos dara transparencia, el valor de alpha va de 0 a 1.
+
+---------------------------------------------------------------------------------------------------------------------
+MODO COLOR HEXADECIMAL
+
+Es un sistema basado en hexadecimales, para indicar que vamos a usar el hexadecimal se debe empezar con el #
+
+---------------------------------------------------------------------------------------------------------------------
+MODO COLOR HSL  
+
+Es el mas intuitivo para los humanos. es un circulo de colores donde:
+
+0 -> rojo
+60 -> amarillo
+120 -> verde
+180 -> cyan
+240 -> azul
+300 -> magenta 
+
+El segundo valor es la saturacion 0% gris y 100% color puro 
+
+El tercer valor es la luminosidad que va del 0% al 100%
+
+---------------------------------------------------------------------------------------------------------------------
+TIPOGRAFIA
+
+Es la ciencia que estudia el diseño y uso de los tipos de letra 
+
+Si usamos text-* estamos afectando a todo el bloque
+si usamos font-* afectamos solo a la fuente 
+
+font-family: sans serify; te pone la letra mas plana y mas facil de leer.
+
+---------------------------------------------------------------------------------------------------------------------
+GOOGLE FONTS CON CSS 
+
+Para usar fuente de google fonts, solo tenemos que ir a la pagina, seleccionar la fuente y copiar los "link" de html que nos genera. SE DEBEN PEGAR EN EL HTML ARRIBA DE LA HOJA DE ESTILOS.
+
+Es recomendable dejar otra font-family por si se llega a caer el servicio de google fonts.
+
+---------------------------------------------------------------------------------------------------------------------
+GOOGLE ICONS 
+
+Si se ocupan muchos es mejor descargar la libreria completa, pero si solo ocupamos algunos es mejor descargar las imagenes svg.
+
+se puede agregar la linea de <span> o la linea de svg. Ambos te los da la pagina de google icons.
+
+---------------------------------------------------------------------------------------------------------------------
+@FONT-FACE
+
+Sirve para importar fuentes que tenemos descargadas o que estan en un servidor remoto.
+
+@font-face{
+    font-family: 'MANO ALZADA';
+    src: url(RUTA de la fuente descargada);
+}
+
+esto es solo para declararla y que podamos mandarla llamar en otras partes del css
+---------------------------------------------------------------------------------------------------------------------
+DECORAR TEXTOS 
+
+text-transform: Permite hacer transformaciones esteticas en el texto.
+    none: ninguna transformacion 
+    uppercase: mayusculas
+    lowercase: minusculas
+    capitaliza: primera letra de cada palabra en mayusculas
+
+SOLO ES UN CAMBIO ESTETICO, PERO EN EL HTML SIGUE IGUAL.
+
+text-decoration: permite controlar la linea que podemos poner en los textos.
+    none:
+    underline: subraya
+    overline:  sobreraya
+    line-trought: tacha
+
+ text-shadow: es igual que box SHADOW
+ ---------------------------------------------------------------------------------------------------------------------
+ ESPACIO ENTRE LETRAS 
+
+ letter-spacing: establece la separacion entre caracteres 
+ word-spacing: separacion entre palabras
+ line-height: establece el alto de cada linea 
+writting-mode:    
+
+
+
+
+
+
+
 
 
 
