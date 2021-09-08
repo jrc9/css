@@ -534,6 +534,125 @@ text-decoration: permite controlar la linea que podemos poner en los textos.
  line-height: establece el alto de cada linea 
 writting-mode:    
 
+---------------------------------------------------------------------------------------------------------------------
+FLOAT
+
+permite ubicar un elemento la lado izquierdo o derecho de un contenedor
+
+float: right;     Flotara a la derecha del contenedor
+
+---------------------------------------------------------------------------------------------------------------------
+PSEUDOELEMENTO 
+
+Solo funciona en elementos de bloque y se le aplica a algun elemento del HTML 
+
+::first-line     // se pone .text::first-line y va a modificar siempre la primera linea dependiendo de lo que quieras 
+::first-letter   // se pone .text::first-letter y va a modificar siempre la primera letra dependiendo de lo que quieras
+::placeholder    // es lo que aparece dentro de la caja de un formulario cuando te posicionas ahi   input::placeholder{ color: red}. Nos sirve para dar estilos al placeholder 
+::after          //  funciona como el befero pero el contenido va despues en vez de antes.       
+::before         // te permite agregar texto antes del elemento de linea que esta en el html. Por ejemplo en el HTML tienes <b>jorge</b> y en el css b::before{content: "hola"}. en la pantalla saldrá "hola jorge" 
+                    // solo es para elementos de linea y se nececita forzozamente el contendo en el css
+::selection       // es cuando seleccionas texto y sirve para dar estilo a la seleccion. input::selection{color: red}
+
+---------------------------------------------------------------------------------------------------------------------
+PSEUDOCLASES 
+
+la tipografia es:  .caja1:pseudoclase{}
+
+:hover  //escucha al elemento cuando el mouse esta encima, funciona tanto en linea como en bloque. 
+:link   //cambia un link que aun no visitamos, una vez que se visita cambia de color.
+:visited //es como link pero para dar estilos a los links que ya fueron visitados
+:active // al dejar apretado un boton, cambian los estilos en el elemento que se seleccione 
+:focus  //se aplica a los inputs, cuando le das clic al input cambia el etsilo. cliqueas en otro lado que no sea el input y se regresa a su estilo original.
+:lang   //es para modificar el estilo de algun lenguaje y se escribe .caja b:lang(en){ }. lang es una parametro que se pone en el elemento en el HTML.
+
+---------------------------------------------------------------------------------------------------------------------
+Object-Fit: 
+
+Es una propiedad que se utiliza con imagenes. 
+
+object-fit: 
+->Fil: llena el contenedor con la imagen aunque la deforme y es la que esta por defecto;
+->contain: la imagen se ajusta a sus resoluciones reales de la misma aunque queden huecos en la caja
+->cover: la imagen se ajusta al contenedor pero recorta la imagen de todo lo que se sale del contenedor 
+->none: se queda con el tamaño de la imagen original y no la modifica 
+->Scale-Down: si none es mas chiquito deja none y si contain es mas chiquito deja contain.
+-> object-position: (left,right,bottom,top): sirve para indicarle la parte de la imagen que ueramos que se vea en caso de que la imagen se este recortando del cover.
+---------------------------------------------------------------------------------------------------------------------
+CURSOR
+
+Es una propiedad que te permite cambiar el cursor en la pagina. Esto pasa cuando estas con el cursor encima de un elemento.
+
+cursor: (nombre del cursor);
+
+---------------------------------------------------------------------------------------------------------------------
+CONCEPTOS BASICOS DE RESPONSIVE 
+
+MOBILE FIRST 
+
+Es crealo para mobile y despues dubirlo a tablet y despues a escritorio.
+
+ 
+@media only screen and (max-width: 800px){
+
+    div{
+        display: block;
+        width: 100%;
+    }
+}
+
+Con esto le damos propiedades al css para cuando la resolucion es menor a 800 pixeles 
+
+---------------------------------------------------------------------------------------------------------------------
+FLEXBOX 
+
+Los flex-items son solo los hijos directos de donde se pone el display:flex;
+
+Intenta en base al contenido, mantener la altura.
+
+---------------------------------------------------------------------------------------------------------------------
+
+PROPIEDADES QUE SE APLICAN AL CONTENEDOR PARA AFECTAR A LOS items
+
+Flex-direction: row o column;  //con row los items se comportan como fila y con columna como columna 
+Flex-direction: row-reverse o column-reverse;  //cambias 180 grados la direccion de los items 
+flex-wrap: wrap: respeta las medidas originales de las cajas y las va mandando para abajo en el contenedor  
+flex-wrap: wrap-reverse: en vez de mandar las cajas hacia abajo la manda hacia arriba
+justify-content: center  // centra los items del contenedor que tiene el display flex 
+justify-content: space-between // dejar la mayor cantidad posible entre cajas a la misma distancia 
+justify-content: space-around // es como margin: auto
+justify-content: space-evenly // que cada caja tenga exactamente el mismo espacio 
+
+ALINEAR EN EL EJE Y 
+
+align-items; flex start  // se ajusta la caja flexible a su contenido y no la estira 
+align-items; center      // centra verticalmente las cajas 
+align-items; flex-end    // pone hasta el final del eje y las cajas 
+align-content: flex start // manda las cajas hasta arriba para que no queden huecos verticalmente 
+
+---------------------------------------------------------------------------------------------------------------------
+PROPIEDADES DE LOS ITEMS FLEX 
+
+align-self: center // funciona en el eje Y 
+flex-grow: 1 // Hace que si sobra un espacio, las cajas se repartan igualmente ese espacio dependiendo de a que se lo pongas en el css. si solo lo pones en un elemento, ese elemento ocupa el espacio sobrante 
+             // el numero te indica cuantas partes de lo que sobra va a ocupar 
+flex-basis: 300px// es como width pero el css le da mas importancia 
+flex-shrink: 2;  // sirve para ver cuantas partes va a ceder cada caja cuando el espacio no alcance 
+order: 1;  // es como el z-index pero en el eje en el que apunta el main-axis 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
