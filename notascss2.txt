@@ -1,0 +1,697 @@
+TIPOS DE SELECTORES EN CSS
+
+Selectores simples
+-selectores elementales
+---selector universal -> *
+---selector de tipo o etiqueta -> Nombre de la etiqueta
+
+-selectores de atributo
+--- id -> se pone el id del elemento--------no es recomendable por que solo le pega a un elemento de una pagina de todo el sitio
+--- clase -> clase del elemento-------------el mas recomendable para agarrar todo lo que esté dentro de una clase. Puedes tener n clases en una etiqueta
+
+--- otros atributos-----------------------------------------------------------------------------------------------------------
+[atributo]
+[atributo=valor]
+[atributo^=valor]---------para atributos que empiecen por algo
+[atributo*=valor]----------]es como el de arriba pero no necesariamente tiene que comenzar, puede estar donde sea
+[atributo $=valor]---------parecido a los de arriba pero es para si termina con una palabra
+[atributo |=valor]---------para poner un atributo que lleve guion o no
+-------------------------------------------------------------------------------------------------------------------------------
+
+selectores compuestos(son los que requieren mas de una palabra o con simbolos)
+-selectores agrupados-------si le vas a meter el mismo estilo a varios, los puedes separar por comas 
+
+    .text-1,
+    .text-2,
+    .text-3,
+    .text-4{
+        background-color: steelblue;
+    }
+
+-------------------------------------------------------------------------------------------------------------------------------
+-selectores combinadores
+------selector descendiente(hijos)------es para dar estilo a una etiqueta que este dentro de otro y no le pegue a todas. Ejemplo a clase title-2 dentro de un div.
+
+div .title-2{
+    background-color: skyblue;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+selector de hermano siguiente(que estan al mismo nivel en el HTML). Solo funciona con el hermano siguiente.
+
+.title-2 + .text-1 {
+    background-color:seagreen;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+seleccionar todos los hermanos siguientes
+
+.text-1 ~ p,
+.text-1 ~ h2{
+    background-color: tomato;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Selector Hijo Directo(solo selecciona los hijos directos, sin nietos). En este caso seleccionaria solo los p que son hijos directos
+
+.container > p {
+    background: red;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ESPECIFICIDAD Y CASCADA
+
+Especificidad -> Establece como de especifico es un selector para saber que estilo aplicar
+
+    El navegador tiene ciertos valores para definir cual va a ganar en el css.
+        Etiquetas y pseudoelementos 001
+        Clase, atributos y pseudoclases 010
+        IDs 100
+        Estilos en linea(los que van directo en el HTML) 1000
+        !Important Gana a todo
+
+    Nunca usar !important por que te saltas toda la Especificidad
+
+El navegador primero toma en cuenta la Especificidad y luego el orden en cascada tomando en cuenta el de mas abajo
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+HERENCIA -> Es la capacidad que tienen algunos elementos de heredar algunas propiedades de sus elementos contenedores (padres, abuelos, etc).
+
+* Los enlaces no heredan de su padre por que son elementos que se tienen que distinguir
+
+Para forzar que hereden de su padre se pone la palabra "inherit" en el valor del atributo
+
+.text{
+    color: green;
+}
+
+.link{
+    color: inherit;
+}
+
+Para evitar que un elemento adquiera los propiedades de su padre se pone al valor "initial".
+
+.lis-item-extra{
+    color:initial;
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+ESTILOS POR DEFECTO Y HERRAMIENTA INSPECCIONAR
+
+Todos los navegadores traen estilos por defecto.
+Para ver que estilos se estan aplicando y de que linea se usa la herramienta de inspeccionar del navegador.
+
+SE PUEDEN NORMALIZAR LOS ESTILOS DE LOS NAVEGADORES.
+
+Para normalizar hay que importar un archivo que se llama normalize.css que hay que descargar y ponerlo hasta arriba en la cascada de los estillos.
+
+----------------------------------------------------------------------------------------------------------------------
+PREFIJOS PROPIETARIOS
+
+Estos se usan para cuando aun no hay ciertas cosas de css implementadas al 100 en el lenguaje y se usan algunos prefijos para que el navegador las interprete. Usa una pagina que se llama 'autoprefixer' para que el escriba el codigo css y le genere el codigo con los prefijos. Mas que nada es por que como hay muchos navegadores es para que funcione en todos.
+
+puse autoprefixer en el vscode, solo hay que ejecutar el comando autoprefixer y te los pone solito
+
+----------------------------------------------------------------------------------------------------------------------
+BOX MODEL
+
+Contenido: lo que esta dentro de la caja
+Borde: El borde de la caja
+Padding: la distancia entre el borde y el Contenido
+Margin: la distancia entre caja y caja
+width: ancho de la caja
+height: alto de la caja
+
+----------------------------------------------------------------------------------------------------------------------
+WIDTH Y HEIGHT 
+
+Con width y height no puedes dar medidas a los elementos de linea, solo a los que son de bloque.
+
+----------------------------------------------------------------------------------------------------------------------
+MARGIN Y PADDING 
+
+Margin nos permite generar espacio entre elementos. 
+margin-top:
+margin-right:
+margin-bottom:
+margin-right:
+
+Margin admite hasta 4 valores que van en el sentido de las agujas del reloj. 
+
+margin:top right bottom left
+
+Los elementos de linea solo funcionan los margenes horizontales(right y left) y en los de bloque funcionan todos.
+
+-----------------
+Para tener margenes automaticos sobre un bloque se utilizan los siguientes:
+
+margin-left: auto;
+margin-right: auto;
+
+esto es dependiendo del tamaño de la caja se ajusta hasta la derecha o la izquierda segun lo que necesite.
+----------------------------------------------------------------------------------------------------------------------
+*{
+    margin: 0;
+    adding: 0;
+}
+
+Esto es una mala practica ya que te tumba todos los margenes por estar hasta arriba y te tocaria meter los margenes a cada elemento y generaria muchisimo codigo.
+
+Para centrar un elemento no hay que usar "margin: 0 auto" ya que te puede pegar a los margenes verticales, si lo que se quiere es centrar horizontalmente hay que poner:
+
+margin-left: auto;
+margin-right: auto;
+--------------------------------------------
+En el body si es recomendable poner margin: 0; ya que por defecto el navegador trae 8px de margen.
+----------------------------------------------------------------------------------------------------------------------
+PADDING
+
+Es la propiedad que nos permite generar espacio entre el borde y la caja. Igual que en el margin, se aplica para arriba, abajo, inzquierda derecha e igual funciona con las agujas del reloj para cuando tiene 2 o mas parametros.
+
+En el padding a diferencia de margin si funciona para top y bottom en los elementos de linea.
+
+----------------------------------------------------------------------------------------------------------------------
+BORDER
+
+Es la propiedad que nos permite modificar el borde de la caja.
+
+border-width:
+border-style:
+border-color:
+
+----------------------------------------------------------------------------------------------------------------------
+BOX SIZING
+
+Esta propiedad sirve para ajustar automaticamente tu caja a los pixeles dados desde un inicio en tu caja, ya que si le agregas  paddign o border la caja crecera pero con box-sizing te ajusta automaticamente todos los valores sin que la caja crezca.
+
+box-sizing: border-box;
+
+lo puedes poner en el selector universal * para que todas las cajas lo tengan.
+
+----------------------------------------------------------------------------------------------------------------------
+BORDER RADIUS
+
+Permite redondear los bordes de una caja.
+
+border-radius; 50px;
+
+----------------------------------------------------------------------------------------------------------------------
+BORDER RADIUS ELIPTICO
+
+Es como el border raius pero en vez de creear circulos como vertice para recortar, utilizas 2 parametros para el eje x y Y.
+
+border-top-left-radius: 50px 100px; corta 50 en el eje x y 100 en el eje Y
+
+border-radius: 50px / 100px;   con la / te aseguras de que entienda que es una elipse
+
+----------------------------------------------------------------------------------------------------------------------
+OVERFLOW
+
+Es lo que se usa para controlar que se desborden las cajas. Que es cuando se desborda el contenido del tamaño original de la caja.
+
+overflow-y:hidden;     Se oculta el comtenido que se desborda de la caja
+overflow-y:scroll;        Sale un scroll para poder moverte
+
+----------------------------------------------------------------------------------------------------------------------
+COLAPSADO DE MARGENES  
+
+Es un problema en CSS ya que los margenes verticales colapsan ya que si se encuentran 2 margenes se pone uno encima del otro.
+Por lo que es recomendable empezar de arriba hacia abajo poniendo margin-bottom.
+
+Esto solo pasa en vertical, en horizontal si se suman los margenes.
+
+----------------------------------------------------------------------------------------------------------------------
+DISPLAY
+
+Sirve para cambiar el contexto de los elementos dentro del navegador.
+
+none -> hace que el elemento no se muestre
+block -> Hace que el elemento sea de bloque
+inline -> Hace que el elemento sea de linea
+inline-block -> hace que el elemento sea de linea pero permite margenes verticales
+
+---------------------------------------------------------------------------------------------------------------------
+OUTLINE
+
+Es similar a border solo que el outline si encima mas cajas, el borde va a estar aumentando o quitando tamaño a la caja pero el outline se dibuja por fuera de la caja.
+
+outline-offset -> nos sirve para indicar a cuanta distancia de la caja queremos que se dibuje. Puede ser para afuera o para adentro de la caja
+
+----------------------------------------------------------------------------------------------------------------------
+TEXT ALIGN
+
+nos permite alinear horizontalmente el contenido de un elemento de bloque siempre que no tenga ancho declarado.
+
+----------------------------------------------------------------------------------------------------------------------
+BOX SHADOW
+
+Sirve para dar sombra a una caja, solo hay que jugar con los valores para acomodarlo.
+
+con el parametro "inset" le indicas que la sombra va a ir por dentro de la caja y no por fuera.
+
+Puedes poner las sombras que quieras solo en los parametros separas con una coma las sombras que quieras poner
+
+box-shadow: 5px 5px red, 10px 10px blue;
+----------------------------------------------------------------------------------------------------------------------
+POSITION
+
+Esta propiedad nos permite posicionar los elementos. 
+
+-Flujo renderizado: Todos los elementos se dibujan de izquierda a derecha y de arriba a abajo. El punto 0,0 es ariba a la izquierda
+
+-Espacio: reservado: el espacio que un navegador le asigna a un elemento para que ningun otro elemento entre en ese espacio
+
+-Elemento posicion: esto significa que el elemento tiene una posicion diferente de static que es la propiedad que tiene por default position.
+
+-stackin context: es el orden en el que se apilan las cajas que se superponen dentro del mismo contenedor.
+
+Position tiene 5 propiedades para mover el elemnto en 3 ejes.
+
+top, right, botton, left y z-index.
+
+z-index: seria la profundidad de cada elemento.
+
+*****Si a un elemento le ponemos las propiedades top y left, bottom y right no funcionaran.
+ 
+POSIBLES VALORES QUE LE PODEMOS DAR A POSITION
+
+static: es el valor por defecto, por lo que el elemnto no está posicionado.
+
+relative: cuando tu pones "position:relative" la caja tiene su espacio reservado en el navegador y toma como referencia el punto 0,0 en x,y de la caja, si tu le quieres dar un top, bottom, left, right desde el punto 0,0 donde esta la caja tomara estas medidas.
+
+absolute: El elemento pierde sus medidas y espacio reservado y puede ocuparlo otra caja. Si lo movemos usara el elemnto POSICIONADO contenedor como referencia. Si no está posicionado el contenedor no lo toma en cuenta.
+
+fixed: El elemento pierde sus medidas y espacio reservado. SE QUEDARA EN SU POSICION AUNQUE HAGAMOS SCROLL. YA NO SE USA TANTO POR QUE STICKY LO SUPLIO A MENOS QUE TENGAS QUE DAR SOPORTE A NAVEGADORES VIEJOS. SIEMPRE USARA COMO REFERENCIA EL HTML AUNQUE ESTE DENTRO DE UN CONTENEDOR.
+
+sticky: Es una mezcla de position relative y fixed. Aqui top,left, right, bottom no funcionan para dra espaciado si no para indicar que apartir de esa distancia deja de ser fixed y se vuelve relative. SI USAS OVERFLOW HIDDEN, STICKY NO FUNCIONARA.
+
+SI UN ELEMENTO ESTA POSICIONADO RESPECTO A OTRO, TODO LO QUE ESTE POSICIONADO DENTRO DEL CONTENEDOR, SE VA A MOVER CON EL.
+
+SI POSICIONAS ELEMENTOS DE LINEA, AUTOMATICAMENTE LO VUELVE DE BLOQUE SIN NECESIDAD DE PONER "display:block"
+
+----------------------------------------------------------------------------------------------------------------------
+Z-INDEX 
+
+Es la propiedad que os permite ordenar los elementos superpuestos para decidir cual se pone por delante.
+
+ z-index: 1;      EN EL PARAMETRO DE Z-INDEX EL NUMERO MAYOR ES EL QUE SE SOBREPONE
+
+ NO HAY QUE PONER NUMEROS CONSECUTIVOS POR SI SE PONEN ELEMENTOS EXTRAS YA QUE SI NO SE TENDRIA QUE REACOMODAR TODO.
+
+ EL PADRE JAMAS SE COLOCA POR ENCIMA DEL HIJO CON Z-INDEX, LO QUE PUEDES HACER ES PONER AL HIJO DETRAS DEL PADRE, SOLO HAY QUE DARLE VALOR NEGATIVO AL Z-INDEX SIEMPRE Y CUANDO EL PADRE NO TENGA UN Z-INDEX DECLARADO.
+
+ ---------------------------------------------------------------------------------------------------------------------
+ STACKING context
+
+ Es el algoritmo que usa el navegador para ordenar las cajas.
+
+ El orden de stacking context es el siguiente:
+ -Elementos posicionados con un z-index de 1 o mas
+ -Elementos posicionados sin z-index declarado o en auto
+ -Elementos no posicionados
+ -Elementos con z-index NEGATIVO
+
+ DENTRO DE CADA DIV O CONTENEDOR TAMBIEN SE APLICAN ESTOS ORDENES
+
+ ---------------------------------------------------------------------------------------------------------------------
+ COMO ORDENAR LAS PROPIEDADES EN EL CSS
+
+ 1.-Propiedades de posicionamiento
+ 2.-Propiedades del box MODEL
+ 3.-Propiedades de texto
+ 4.-Propiedades visuales (colores, bordes, background)
+ 5.-El resto  
+
+ body{
+
+     //Position//
+     position: relative;
+     top: 0;
+     left: 0;
+
+     //box model//
+     display: block;
+     width: 300px;
+     padding: 10px;
+     overflow: hidden;
+
+     //text//
+     font-size: 16px;
+     text-align: center;
+
+     //VISUALES//
+     color: blue;
+     border: 2px solid red;
+     border-radius: 10px;
+
+     //RESTO//
+     opacity: 1;
+
+
+ }
+
+ ---------------------------------------------------------------------------------------------------------------------
+ MEDIDAS ABSOLUTAS Y RELATIVAS
+
+ Las medidas absolutas no cambian y siempre mantendran su tamaño independientemente del dispositivo o la interaccion del usuario.
+
+ Medidas:
+ -px 
+ -cm 
+ -mm 
+ -Q (cuarto de milimetro)
+ -in(pulgadas) 
+ -pc(picas) 
+ -pt(puntos)
+
+ Las medidas relativas siempre dependen de un contexto, osn las que se recomienda utilizar casi siempre para utilizar los diseños responsive.
+
+ Las relativas mas utilizadas son:
+ -em
+ -rem 
+ -%
+ -vw
+ -vh
+ -vmin
+ -vmax
+ ---------------------------------------------------------------------------------------------------------------------
+ Unidades de medida EM y REM 
+
+rem -> corresponde a la medida de la "m" de la raiz del documento(html).
+
+em -> corresponde a la medida de la "m" del contexto donde nos encontremos.
+
+El estandar del tamaño de la fuente por defecto en la raiz del documento de 16px y no es recomendable modificarlo.
+
+NOTA: Tanto "em" como "rem" se calcula en base a la propiedad font-size;
+
+ejemplo: 16px = 1rem
+
+Al depender del contexto con em, se recomienda usar siempre rem para texto.
+
+Si lo que esta alrededor de una caja debe crecer proporcionalmente al texto, es recomendable usar siempre em.
+
+---------------------------------------------------------------------------------------------------------------------
+WIDTH % Y WIDTH AUTO
+
+% -> Se usa para dar medidas en funcion al tamaño del contenedor
+
+auto -> si se usa auto, se le pide al navegador que calcule en funcion del espacio disponible. Con auto ocupa todo lo que puede a los lados.
+
+---------------------------------------------------------------------------------------------------------------------
+HEIGHT % Y HEIGHT AUTO
+
+% -> Cuando estamos dentro de un contenedor, este tiene que tener un alto declarado si no no podra calcular el porcentaje
+
+auto - > el navegador calculara en base al contenido del elemento.
+
+---------------------------------------------------------------------------------------------------------------------
+VIEWPORT RESPONSIVE 
+
+Es el area util donde se mostrara la página web(area visible sin hacer scroll)
+
+vw -> viewport width
+vh -> viewpoert height
+vmax -> usa el valor mas grande entre el ancho y alto del viewport
+vmin -> usa el valor mas pequeño entre el ancho y alto del viewport
+
+1vw = 1% del ancho del viewport 
+1vh = 1% del alto del viewport  
+1vmin = 1% del valor que sea mas pequeño en el viewport  
+1vmax = 1% del valor que sea mas grande en el viewport  
+
+el viewport width se redimensiona de acuerdo al viewport y el porcentaje de acuerdo a su caja contenedora.
+---------------------------------------------------------------------------------------------------------------------
+LIMITADORES DE ANCHO Y ALTO CON MEDIDAS RELATIVAS  
+
+min-width: ancho minimo
+max-width: ancho maximo
+min-height: alto minimo
+max-height: alto maximo 
+
+---------------------------------------------------------------------------------------------------------------------
+CODIGOS DE COLORES  
+
+La suma de los colores da como resultado un blanco, entre mas vayas quitando se acerca mas al negro.
+
+---------------------------------------------------------------------------------------------------------------------
+CURRENT COLOR 
+
+Es un parametro que se pueda usar en cualquier propiedad que acepte color.
+Toma el valor de color que le quede mas cerca, ya sea el de su propia caja o el de su padre o abuelo.
+
+---------------------------------------------------------------------------------------------------------------------
+MODO COLOR RGB 
+
+RED, GREEN, BLUE 
+
+Los valores van a ir de 0 A 255. Si ponemos todos en 0 nos dara un negro y todos en 255 nos dara un blanco.
+
+A 128 nos dara gris puro.
+
+Si utlizamos el 4to parametro sera el canal alpha el cual nos dara transparencia, el valor de alpha va de 0 a 1.
+
+---------------------------------------------------------------------------------------------------------------------
+MODO COLOR HEXADECIMAL
+
+Es un sistema basado en hexadecimales, para indicar que vamos a usar el hexadecimal se debe empezar con el #
+
+---------------------------------------------------------------------------------------------------------------------
+MODO COLOR HSL  
+
+Es el mas intuitivo para los humanos. es un circulo de colores donde:
+
+0 -> rojo
+60 -> amarillo
+120 -> verde
+180 -> cyan
+240 -> azul
+300 -> magenta 
+
+El segundo valor es la saturacion 0% gris y 100% color puro 
+
+El tercer valor es la luminosidad que va del 0% al 100%
+
+---------------------------------------------------------------------------------------------------------------------
+TIPOGRAFIA
+
+Es la ciencia que estudia el diseño y uso de los tipos de letra 
+
+Si usamos text-* estamos afectando a todo el bloque
+si usamos font-* afectamos solo a la fuente 
+
+font-family: sans serify; te pone la letra mas plana y mas facil de leer.
+
+---------------------------------------------------------------------------------------------------------------------
+GOOGLE FONTS CON CSS 
+
+Para usar fuente de google fonts, solo tenemos que ir a la pagina, seleccionar la fuente y copiar los "link" de html que nos genera. SE DEBEN PEGAR EN EL HTML ARRIBA DE LA HOJA DE ESTILOS.
+
+Es recomendable dejar otra font-family por si se llega a caer el servicio de google fonts.
+
+---------------------------------------------------------------------------------------------------------------------
+GOOGLE ICONS 
+
+Si se ocupan muchos es mejor descargar la libreria completa, pero si solo ocupamos algunos es mejor descargar las imagenes svg.
+
+se puede agregar la linea de <span> o la linea de svg. Ambos te los da la pagina de google icons.
+
+---------------------------------------------------------------------------------------------------------------------
+@FONT-FACE
+
+Sirve para importar fuentes que tenemos descargadas o que estan en un servidor remoto.
+
+@font-face{
+    font-family: 'MANO ALZADA';
+    src: url(RUTA de la fuente descargada);
+}
+
+esto es solo para declararla y que podamos mandarla llamar en otras partes del css
+---------------------------------------------------------------------------------------------------------------------
+DECORAR TEXTOS 
+
+text-transform: Permite hacer transformaciones esteticas en el texto.
+    none: ninguna transformacion 
+    uppercase: mayusculas
+    lowercase: minusculas
+    capitaliza: primera letra de cada palabra en mayusculas
+
+SOLO ES UN CAMBIO ESTETICO, PERO EN EL HTML SIGUE IGUAL.
+
+text-decoration: permite controlar la linea que podemos poner en los textos.
+    none:
+    underline: subraya
+    overline:  sobreraya
+    line-trought: tacha
+
+ text-shadow: es igual que box SHADOW
+ ---------------------------------------------------------------------------------------------------------------------
+ ESPACIO ENTRE LETRAS 
+
+ letter-spacing: establece la separacion entre caracteres 
+ word-spacing: separacion entre palabras
+ line-height: establece el alto de cada linea 
+writting-mode:    
+
+---------------------------------------------------------------------------------------------------------------------
+FLOAT
+
+permite ubicar un elemento la lado izquierdo o derecho de un contenedor
+
+float: right;     Flotara a la derecha del contenedor
+
+---------------------------------------------------------------------------------------------------------------------
+PSEUDOELEMENTO 
+
+Solo funciona en elementos de bloque y se le aplica a algun elemento del HTML 
+
+::first-line     // se pone .text::first-line y va a modificar siempre la primera linea dependiendo de lo que quieras 
+::first-letter   // se pone .text::first-letter y va a modificar siempre la primera letra dependiendo de lo que quieras
+::placeholder    // es lo que aparece dentro de la caja de un formulario cuando te posicionas ahi   input::placeholder{ color: red}. Nos sirve para dar estilos al placeholder 
+::after          //  funciona como el befero pero el contenido va despues en vez de antes.       
+::before         // te permite agregar texto antes del elemento de linea que esta en el html. Por ejemplo en el HTML tienes <b>jorge</b> y en el css b::before{content: "hola"}. en la pantalla saldrá "hola jorge" 
+                    // solo es para elementos de linea y se nececita forzozamente el contendo en el css
+::selection       // es cuando seleccionas texto y sirve para dar estilo a la seleccion. input::selection{color: red}
+
+---------------------------------------------------------------------------------------------------------------------
+PSEUDOCLASES 
+
+la tipografia es:  .caja1:pseudoclase{}
+
+:hover  //escucha al elemento cuando el mouse esta encima, funciona tanto en linea como en bloque. 
+:link   //cambia un link que aun no visitamos, una vez que se visita cambia de color.
+:visited //es como link pero para dar estilos a los links que ya fueron visitados
+:active // al dejar apretado un boton, cambian los estilos en el elemento que se seleccione 
+:focus  //se aplica a los inputs, cuando le das clic al input cambia el etsilo. cliqueas en otro lado que no sea el input y se regresa a su estilo original.
+:lang   //es para modificar el estilo de algun lenguaje y se escribe .caja b:lang(en){ }. lang es una parametro que se pone en el elemento en el HTML.
+
+---------------------------------------------------------------------------------------------------------------------
+Object-Fit: 
+
+Es una propiedad que se utiliza con imagenes. 
+
+object-fit: 
+->Fil: llena el contenedor con la imagen aunque la deforme y es la que esta por defecto;
+->contain: la imagen se ajusta a sus resoluciones reales de la misma aunque queden huecos en la caja
+->cover: la imagen se ajusta al contenedor pero recorta la imagen de todo lo que se sale del contenedor 
+->none: se queda con el tamaño de la imagen original y no la modifica 
+->Scale-Down: si none es mas chiquito deja none y si contain es mas chiquito deja contain.
+-> object-position: (left,right,bottom,top): sirve para indicarle la parte de la imagen que ueramos que se vea en caso de que la imagen se este recortando del cover.
+---------------------------------------------------------------------------------------------------------------------
+CURSOR
+
+Es una propiedad que te permite cambiar el cursor en la pagina. Esto pasa cuando estas con el cursor encima de un elemento.
+
+cursor: (nombre del cursor);
+
+---------------------------------------------------------------------------------------------------------------------
+CONCEPTOS BASICOS DE RESPONSIVE 
+
+MOBILE FIRST 
+
+Es crealo para mobile y despues dubirlo a tablet y despues a escritorio.
+
+ 
+@media only screen and (max-width: 800px){
+
+    div{
+        display: block;
+        width: 100%;
+    }
+}
+
+Con esto le damos propiedades al css para cuando la resolucion es menor a 800 pixeles 
+
+---------------------------------------------------------------------------------------------------------------------
+FLEXBOX 
+
+Los flex-items son solo los hijos directos de donde se pone el display:flex;
+
+Intenta en base al contenido, mantener la altura.
+
+---------------------------------------------------------------------------------------------------------------------
+
+PROPIEDADES QUE SE APLICAN AL CONTENEDOR PARA AFECTAR A LOS items
+
+Flex-direction: row o column;  //con row los items se comportan como fila y con columna como columna 
+Flex-direction: row-reverse o column-reverse;  //cambias 180 grados la direccion de los items 
+flex-wrap: wrap: respeta las medidas originales de las cajas y las va mandando para abajo en el contenedor  
+flex-wrap: wrap-reverse: en vez de mandar las cajas hacia abajo la manda hacia arriba
+justify-content: center  // centra los items del contenedor que tiene el display flex 
+justify-content: space-between // dejar la mayor cantidad posible entre cajas a la misma distancia 
+justify-content: space-around // es como margin: auto
+justify-content: space-evenly // que cada caja tenga exactamente el mismo espacio 
+
+ALINEAR EN EL EJE Y 
+
+align-items; flex start  // se ajusta la caja flexible a su contenido y no la estira 
+align-items; center      // centra verticalmente las cajas 
+align-items; flex-end    // pone hasta el final del eje y las cajas 
+align-content: flex start // manda las cajas hasta arriba para que no queden huecos verticalmente 
+
+---------------------------------------------------------------------------------------------------------------------
+PROPIEDADES DE LOS ITEMS FLEX 
+
+align-self: center // funciona en el eje Y 
+flex-grow: 1 // Hace que si sobra un espacio, las cajas se repartan igualmente ese espacio dependiendo de a que se lo pongas en el css. si solo lo pones en un elemento, ese elemento ocupa el espacio sobrante 
+             // el numero te indica cuantas partes de lo que sobra va a ocupar 
+flex-basis: 300px// es como width pero el css le da mas importancia 
+flex-shrink: 2;  // sirve para ver cuantas partes va a ceder cada caja cuando el espacio no alcance 
+order: 1;  // es como el z-index pero en el eje en el que apunta el main-axis 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
